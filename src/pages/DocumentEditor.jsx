@@ -65,7 +65,7 @@ const [showHistory, setShowHistory] = useState(false)
     const token = localStorage.getItem('token')
 
     const client = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8080/ws'),
+      const socket = new SockJS(`${import.meta.env.VITE_WS_URL || 'http://localhost:8080'}/ws`),
       connectHeaders: { Authorization: `Bearer ${token}` },
       onConnect: () => {
         setConnected(true)
